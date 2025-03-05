@@ -1,4 +1,2 @@
-@app.route('/logout', methods=['GET'])
-def logout():
-    return [] #placeholder
+#USer login, token generation
 
