@@ -20,4 +20,9 @@ class Meeting(db.Model):
     zoom_meeting_id = db.Column(db.String(50), nullable = False, unique = True)
     topic = db.Column(db.String(255))
 
-class Transcript(db.Model)
+class Transcript(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    meeting_id = db.Column(db.Integer, db.ForeignKey('meeting.id'), nullable = False) #every transcript paired to a meeting
+    text = db.Column(db.Text(500))
+
+    #potentially add relationship between Transcript/Meeting w/back_populates so u can pull transcript of specific meeting, or meeting of specific transcript easily
